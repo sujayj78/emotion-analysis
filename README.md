@@ -22,7 +22,7 @@ The following list explains functionality of each file:
   5. emo_analysis.pkl      -Trained SVM for emotion analysis
   6. EmotionLinks.xlsx     -Excel sheet consisting paths to songs to be played for each emotion.
   
-On training with CK+ dataset I obtained a testing accuracy of 82%. When trained with CK+ and home-brewed dataset I obtained a testing accuracy of 88%.
+On training with CK+ dataset I obtained a testing accuracy of 78%. When trained with CK+ and home-brewed dataset I obtained a testing accuracy of 84%.
 
 
 
