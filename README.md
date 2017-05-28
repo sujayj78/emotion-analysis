@@ -1,4 +1,4 @@
-# emotion-analysis
+# Real-time emotion recognition music player
 This is a project for running an emotional analysis test on a face to predict the emotion portrayed by the person and play an appropriate song.
 The project is implemented using python; Dlib and scikit learn libraries are the main libraries used here. 
 This application can detect for the following emotions:
@@ -16,8 +16,8 @@ The songs to be played for each emotion will be stored in an excel sheet and pla
 The model can be re-trained as per convenience.
 The following list explains functionality of each file:
   1. orderingDataset.py    -Module for ordering the CK+ dataset.
-  2. faceDetectionDlib3.py -File consists modules for facial landmark detection and emotion calssification.(program to be run for training and static image testing)
-  3. webcamFeed3.py        -Module for running the webcam.(program to be run for real-time emotion analysis)
+  2. faceDetectionDlib.py -File consists modules for facial landmark detection and emotion calssification.(program to be run for training and static image testing)
+  3. webcamFeed.py        -Module for running the webcam.(program to be run for real-time emotion analysis)
   4. musicPlayer.py        -Module for playing song according to the emotion detected.
   5. emo_analysis.pkl      -Trained SVM for emotion analysis
   6. EmotionLinks.xlsx     -Excel sheet consisting paths to songs to be played for each emotion.
