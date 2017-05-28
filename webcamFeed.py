@@ -15,7 +15,7 @@ import cv2
 from sklearn.svm import SVC
 from sklearn.externals import joblib
 from io import StringIO
-from faceDetectionDlib3 import *
+from faceDetectionDlib import *
 from musicPlayer import *
 
 def most_common(L):
