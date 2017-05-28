@@ -14,50 +14,11 @@ video_capture = cv2.VideoCapture(0)
 clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("C:\\Users\\Administrator\\emotionAwareMPlayer\\shape_predictor_68_face_landmarks.dat") #Or set this to whatever you named the downloaded file
-faceDet = cv2.CascadeClassifier("C:\\Users\\Administrator\\Anaconda3\\pkgs\\opencv3-3.1.0-py35_0\\Library\\etc\\haarcascades\\haarcascade_frontalface_default.xml")
-faceDet2 = cv2.CascadeClassifier("C:\\Users\\Administrator\\Anaconda3\\pkgs\\opencv3-3.1.0-py35_0\\Library\\etc\\haarcascades\\haarcascade_frontalface_alt2.xml")
-faceDet3 = cv2.CascadeClassifier("C:\\Users\\Administrator\\Anaconda3\\pkgs\\opencv3-3.1.0-py35_0\\Library\\etc\\haarcascades\\haarcascade_frontalface_alt.xml")
-faceDet4 = cv2.CascadeClassifier("C:\\Users\\Administrator\\Anaconda3\\pkgs\\opencv3-3.1.0-py35_0\\Library\\etc\\haarcascades\\haarcascade_frontalface_alt_tree.xml")
 #clf = SVC(kernel='linear', probability=True, tol=1e-3)#, verbose = True) #Set the classifier as a support vector machines with polynomial kernel
 path_ck="D:\\sorted_set"
 path_art="D:\\arti_sorted_set"
 dset="art"
-
-def detect_faces(gray):
-    
-    #Open image
-    #gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) #Convert image to grayscale
-        
-        #Detect face using 4 different classifiers
-    face = faceDet.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=10, minSize=(5, 5), flags=cv2.CASCADE_SCALE_IMAGE)
-    face2 = faceDet2.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=10, minSize=(5, 5), flags=cv2.CASCADE_SCALE_IMAGE)
-    face3 = faceDet3.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=10, minSize=(5, 5), flags=cv2.CASCADE_SCALE_IMAGE)
-    face4 = faceDet4.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=10, minSize=(5, 5), flags=cv2.CASCADE_SCALE_IMAGE)
-
-        #Go over detected faces, stop at first detected face, return empty if no face.
-    if len(face) == 1:
-        facefeatures = face
-    elif len(face2) == 1:
-        facefeatures == face2
-    elif len(face3) == 1:
-        facefeatures = face3
-    elif len(face4) == 1:
-        facefeatures = face4
-    else:
-        facefeatures = ""
-        
-        #Cut and save face
-    for (x, y, w, h) in facefeatures: #get coordinates and size of rectangle containing face
-        gray = gray[y:y+h, x:x+w] #Cut the frame to size
-            
-        try:
-            out = cv2.resize(gray, (350, 350)) #Resize face so all images have same size
-            cv2.imwrite("D:\\prediction\\%s.jpg" %out) #Write image
-            return out
-        except:
-            pass #If error, pass file
-     #Increment image number
-        
+      
 def get_files(emotion,path): #Define function to get file list, randomly shuffle it and split 80/20
     files = glob.glob("%s\\%s\\*" %(path,emotion))
     random.shuffle(files)
